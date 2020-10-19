@@ -35,7 +35,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
-        //test GitHub
+        //test GitHub add from Xcode
         screenWidth = self.view.frame.size.width
         screenHeight = self.view.frame.size.height
         let toolbarHeight: CGFloat = 70
