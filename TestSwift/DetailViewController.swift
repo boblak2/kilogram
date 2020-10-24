@@ -31,7 +31,7 @@ class DetailViewController: UIViewController{
         imgProfile = UIImageView()
         imgProfile?.frame = CGRect(x: 0, y: 0, width: screenWidth!, height: screnHeight! / 2)
         imgProfile?.backgroundColor = UIColor.red
-        imgProfile?.image = UIImage(named: "car.jpg")
+        imgProfile?.image = UIImage(named: "v.jpg")
         imgProfile?.contentMode = UIView.ContentMode.scaleAspectFit
         self.view.addSubview(imgProfile!)
         
@@ -44,12 +44,14 @@ class DetailViewController: UIViewController{
         
         
         labelFilterName.text = labelData
-        addFilterToPhoto()
+        //addFilterToPhoto()
         
+        /*
         let defaults: UserDefaults = UserDefaults.standard
         let age = defaults.integer(forKey: "age")
         let text = defaults.object(forKey: "burek") as? String ?? "ni shranjem"
         print("age\(age) burek:\(text)")
+        */
         
     }
     
@@ -65,6 +67,61 @@ class DetailViewController: UIViewController{
         defaults.set(35, forKey: "age")
         defaults.set("blazJeCar", forKey: "burek")
         defaults.synchronize()
+        
+    }
+    
+    
+    func transformImage(value: Float) -> () {
+        
+        let inputImage = UIImage(named: "v.jpg")
+        let context = CIContext(options: nil)
+        
+        //CIPhotoEffectTransfer
+        
+        guard let imeFiltra = labelData else{
+            print("imeFiltra ne obtsja")
+            return
+        }
+        
+        if let currentFilter = CIFilter(name: imeFiltra) {
+            
+            let beginImage = CIImage(image: inputImage!)
+            currentFilter.setValue(beginImage, forKey: kCIInputImageKey)
+            
+            let inputKeysArr = currentFilter.inputKeys
+            print("inputKeys:\(inputKeysArr)")
+            
+            if inputKeysArr.contains(kCIInputIntensityKey) {
+                currentFilter.setValue(value, forKey: kCIInputIntensityKey)
+            }
+            if inputKeysArr.contains(kCIInputIntensityKey) {
+                currentFilter.setValue(value, forKey: kCIInputIntensityKey)
+            }
+            if inputKeysArr.contains(kCIInputRadiusKey) {
+                currentFilter.setValue(value * 400, forKey: kCIInputRadiusKey)
+            }
+            if inputKeysArr.contains(kCIInputScaleKey) {
+                currentFilter.setValue(value * 20, forKey: kCIInputScaleKey)
+            }
+            if inputKeysArr.contains(kCIInputCenterKey) {
+                let xCenter = (inputImage?.size.width ?? 1)/2
+                let yCenter = (inputImage?.size.height ?? 1)/2
+                let vector: CIVector = CIVector(x: xCenter, y: yCenter)
+                currentFilter.setValue(vector, forKey: kCIInputCenterKey)
+            }
+            
+            
+            let filterImageData = currentFilter.value(forKey: kCIOutputImageKey) as! CIImage
+            let filterImageRef = context.createCGImage(filterImageData, from: filterImageData.extent)
+            
+            let originalOrientation: UIImage.Orientation = (imgProfile?.image?.imageOrientation)!
+            let originalScale: CGFloat = (imgProfile?.image?.scale)!
+            
+            let newImage: UIImage = UIImage(cgImage: filterImageRef!, scale: originalScale, orientation: originalOrientation)
+            
+            imgProfile?.image = newImage
+            
+        }
         
     }
     
@@ -166,6 +223,13 @@ class DetailViewController: UIViewController{
             
         }
         
+    }
+    
+    
+    @IBAction func didSlide(_ sender: Any) {
+        let tmp: UISlider = sender as! UISlider
+        print(tmp.value)
+        transformImage(value: tmp.value)
     }
     
 }

@@ -19,6 +19,7 @@
 		C6E14D1C2508127400E55957 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C6E14D1A2508127400E55957 /* LaunchScreen.storyboard */; };
 		C6E14D242508EBED00E55957 /* UserData.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6E14D232508EBED00E55957 /* UserData.swift */; };
 		C6E14D262508ED8700E55957 /* car.jpg in Resources */ = {isa = PBXBuildFile; fileRef = C6E14D252508ED8600E55957 /* car.jpg */; };
+		C6FC96B425436A5A00923181 /* v.jpg in Resources */ = {isa = PBXBuildFile; fileRef = C6FC96B325436A5A00923181 /* v.jpg */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -36,6 +37,7 @@
 		C6E14D1D2508127400E55957 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		C6E14D232508EBED00E55957 /* UserData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserData.swift; sourceTree = "<group>"; };
 		C6E14D252508ED8600E55957 /* car.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = car.jpg; sourceTree = "<group>"; };
+		C6FC96B325436A5A00923181 /* v.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = v.jpg; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -77,6 +79,7 @@
 				C605A273251791F200704167 /* WSDelegate.swift */,
 				C61DAE98252F149400C54964 /* Helper.swift */,
 				C6E14D252508ED8600E55957 /* car.jpg */,
+				C6FC96B325436A5A00923181 /* v.jpg */,
 				C6E14D152508127100E55957 /* Main.storyboard */,
 				C6E14D182508127400E55957 /* Assets.xcassets */,
 				C6E14D1A2508127400E55957 /* LaunchScreen.storyboard */,
@@ -144,6 +147,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				C6E14D1C2508127400E55957 /* LaunchScreen.storyboard in Resources */,
+				C6FC96B425436A5A00923181 /* v.jpg in Resources */,
 				C6E14D192508127400E55957 /* Assets.xcassets in Resources */,
 				C6E14D172508127100E55957 /* Main.storyboard in Resources */,
 				C6E14D262508ED8700E55957 /* car.jpg in Resources */,

@@ -108,7 +108,9 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         }
         
         //Add filters
-        let filterNames: [String] = ["CIPhotoEffectTonal","CIPhotoEffectNoir","CIMaximumComponent","CIMinimumComponent","CIDotScreen", "CISepiaTone", "CIFalseColor", "CIColorInvert", "CIColorPosterize", "CIPhotoEffectChrome", "CIPhotoEffectInstant"]
+        //let filterNames: [String] = ["CIPhotoEffectTonal","CIPhotoEffectNoir","CIMaximumComponent","CIMinimumComponent","CIDotScreen", "CISepiaTone", "CIFalseColor", "CIColorInvert", "CIColorPosterize", "CIPhotoEffectChrome", "CIPhotoEffectInstant"]
+        
+        let filterNames = ["CIBumpDistortion", "CIGaussianBlur", "CIPixellate", "CISepiaTone", "CITwirlDistortion", "CIUnsharpMask", "CIVignette", "CIEdges"]
         
         var index: Int = 0
         for el in userPostsArr!{
